@@ -6,8 +6,6 @@
 .classpath
 .project
 .xml
-*.jar
-!libs/**/*.jar
 /.metadata/
 /.recommenders/
 /out/
