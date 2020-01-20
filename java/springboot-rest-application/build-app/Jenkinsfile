@@ -4,14 +4,14 @@ pipeline {
    stages {
       stage('Download') {
          steps {
-            git 'https://github.com/ilegra/jovens-talentos.git'
+            git 'https://github.com/Yanzord/yanzord-sandbox.git'
          }
       }
 
       stage('Test') {
          steps {
             sh '''
-                 cd 2-cloud-native/yan-pereira/tema-final-1
+                 cd java/springboot-rest-application
                  ./gradlew test
                '''
          }
@@ -20,7 +20,7 @@ pipeline {
       stage('Build') {
          steps {
             sh '''
-                 cd 2-cloud-native/yan-pereira/tema-final-1
+                 cd java/springboot-rest-application
                  ./gradlew clean build
                '''
          }
