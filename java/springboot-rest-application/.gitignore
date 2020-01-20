@@ -2,11 +2,12 @@
 **/build/*
 **/.idea/*
 **/.settings/*
-**/gradle/*
 **/.gradle/*
 .classpath
 .project
 .xml
+*.jar
+!libs/**/*.jar
 /.metadata/
 /.recommenders/
 /out/
