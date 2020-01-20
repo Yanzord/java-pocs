@@ -2,13 +2,13 @@ pipeline {
    agent any
 
    stages {
-      stage('Download') {
+      stage('download source code') {
          steps {
             git 'https://github.com/Yanzord/yanzord-sandbox.git'
          }
       }
 
-      stage('Test') {
+      stage('test') {
          steps {
             sh '''
                  cd java/springboot-rest-application
@@ -17,7 +17,7 @@ pipeline {
          }
       }
 
-      stage('Build') {
+      stage('build') {
          steps {
             sh '''
                  cd java/springboot-rest-application
@@ -26,7 +26,7 @@ pipeline {
          }
       }
 
-      stage('Artifactory') {
+      stage('publish artifactory') {
          steps {
             rtServer (
                 id: 'jenkins-artifactory-id',
@@ -40,7 +40,7 @@ pipeline {
                       "files": [
                         {
                           "pattern": "java/springboot-rest-application/build/libs/*.war",
-                          "target": "gradle-release-local"
+                          "target": "gradle-release-local/springboot-rest-application/"
                         }
                      ]
                 }'''
