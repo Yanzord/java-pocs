@@ -25,5 +25,27 @@ pipeline {
                '''
          }
       }
+
+      stage('Artifactory') {
+         steps {
+            rtServer (
+                id: 'jenkins-artifactory-id',
+                url: 'http://localhost:8081/artifactory',
+                username: 'admin',
+                password: 'beirari0@2014'
+            )
+            rtUpload (
+                serverId: 'jenkins-artifactory-id',
+                spec: '''{
+                      "files": [
+                        {
+                          "pattern": "build/libs/*.war",
+                          "target": "gradle-dev-local/"
+                        }
+                     ]
+                }'''
+            )
+         }
+      }
    }
 }
