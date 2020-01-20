@@ -39,8 +39,8 @@ pipeline {
                 spec: '''{
                       "files": [
                         {
-                          "pattern": "build/libs/*.war",
-                          "target": "gradle-dev"
+                          "pattern": "java/springboot-rest-application/build/libs/*.war",
+                          "target": "gradle-release-local"
                         }
                      ]
                 }'''
