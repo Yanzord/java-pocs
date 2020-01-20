@@ -1,0 +1,23 @@
+package com.yanzord.cloud.springbootrestapplication.controller;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/hello")
+public class HelloController {
+
+    @RequestMapping
+    @ResponseBody
+    private String getHelloDefault() {
+        return "Hello anon";
+    }
+
+    @RequestMapping("/{name}")
+    @ResponseBody
+    private String getHello(@PathVariable(value = "name") String name) {
+        return "Hello " + name;
+    }
+}

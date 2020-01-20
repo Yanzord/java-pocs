@@ -1,0 +1,29 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Download') {
+         steps {
+            git 'https://github.com/ilegra/jovens-talentos.git'
+         }
+      }
+
+      stage('Test') {
+         steps {
+            sh '''
+                 cd 2-cloud-native/yan-pereira/tema-final-1
+                 ./gradlew test
+               '''
+         }
+      }
+
+      stage('Build') {
+         steps {
+            sh '''
+                 cd 2-cloud-native/yan-pereira/tema-final-1
+                 ./gradlew clean build
+               '''
+         }
+      }
+   }
+}
