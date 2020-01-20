@@ -40,7 +40,7 @@ pipeline {
                       "files": [
                         {
                           "pattern": "build/libs/*.war",
-                          "target": "gradle-dev-local/"
+                          "target": "gradle-dev"
                         }
                      ]
                 }'''
