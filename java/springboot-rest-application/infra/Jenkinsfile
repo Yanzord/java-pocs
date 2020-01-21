@@ -1,26 +1,28 @@
 pipeline {
    agent any
 
-   stage('download artifactory') {
-      steps {
-         rtServer (
-            id: 'jenkins-artifactory-id',
-            url: 'http://localhost:8081/artifactory',
-            username: 'admin',
-            password: 'beirari0@2014'
-         )
+   stages {
+      stage('download artifactory') {
+         steps {
+            rtServer (
+               id: 'jenkins-artifactory-id',
+               url: 'http://localhost:8081/artifactory',
+               username: 'admin',
+               password: 'beirari0@2014'
+            )
 
-         rtDownload (
-            serverId: 'jenkins-artifactory-id',
-            spec: '''{
-               "files": [
-                  {
-                     "pattern": "gradle-release-local/springboot-rest-application/",
-                     "target": "springboot-rest-application"
-                  }
-               ]
-            }'''
-         )
+            rtDownload (
+               serverId: 'jenkins-artifactory-id',
+               spec: '''{
+                  "files": [
+                     {
+                        "pattern": "gradle-release-local/springboot-rest-application/",
+                        "target": "springboot-rest-application"
+                     }
+                  ]
+               }'''
+            )
+         }
       }
    }
 }
