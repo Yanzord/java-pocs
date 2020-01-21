@@ -13,15 +13,28 @@ pipeline {
 
             rtDownload (
                serverId: 'jenkins-artifactory-id',
-               spec: '''{
-                  "files": [
+               spec:
+                  '''
                      {
-                        "pattern": "gradle-release-local/springboot-rest-application/",
-                        "target": "springboot-rest-application"
+                        "files":
+                        [
+                           {
+                              "pattern": "gradle-release-local/springboot-rest-application/",
+                              "target": "springboot-rest-application"
+                           }
+                        ]
                      }
-                  ]
-               }'''
+                  '''
             )
+         }
+      }
+
+      stage('provisioning') {
+         steps {
+            sh '''
+                  cd java/springboot-rest-application/infra
+                  packer build build.json
+               '''
          }
       }
    }
