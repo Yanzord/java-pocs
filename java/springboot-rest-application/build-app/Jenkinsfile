@@ -2,11 +2,11 @@ pipeline {
    agent any
 
    stages {
-      stage('download source code') {
-         steps {
-            git 'https://github.com/Yanzord/yanzord-sandbox.git'
-         }
-      }
+//       stage('download source code') {
+//          steps {
+//             git 'https://github.com/Yanzord/yanzord-sandbox.git'
+//          }
+//       }
 
       stage('test') {
          steps {
