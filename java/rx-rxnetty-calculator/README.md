@@ -1,4 +1,4 @@
-# Tema 8 - Cloud Native
+# Calculator with RX and RXNetty
 
 ### Configuration
 - Download Docker through [this](https://www.digitalocean.com/community/tutorials/como-instalar-e-usar-o-docker-no-ubuntu-18-04-pt) tutorial.
