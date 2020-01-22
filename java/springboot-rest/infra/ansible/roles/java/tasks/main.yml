@@ -9,4 +9,4 @@
       dest: /usr/local/
 
 - name: run application
-    shell: "java -jar /usr/local/spring-rest-1.0.war"
+    shell: "java -jar /usr/local/springboot-rest.war"
