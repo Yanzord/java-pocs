@@ -1,0 +1,44 @@
+plugins {
+    id 'war'
+}
+
+group 'com.yanzord.cloud.tollrest'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+ext {
+    springVersion = '5.2.2.RELEASE'
+    jettyVersion = '9.4.25.v20191220'
+    cxfVersion = '3.3.4'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile([
+            "org.apache.cxf:cxf-rt-frontend-jaxrs:$cxfVersion",
+            "org.apache.cxf:cxf-rt-rs-extension-providers:$cxfVersion",
+            "org.apache.cxf:cxf-rt-rs-client:$cxfVersion",
+            "org.apache.cxf:cxf-integration-cdi:$cxfVersion",
+
+            'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.10.1',
+            'javax.json:javax.json-api:1.0',
+
+            "org.springframework:spring-core:$springVersion",
+            "org.springframework:spring-context:$springVersion",
+            "org.springframework:spring-beans:$springVersion",
+            "org.springframework:spring-web:$springVersion",
+
+            "org.eclipse.jetty:jetty-server:$jettyVersion",
+            "org.eclipse.jetty:jetty-annotations:$jettyVersion",
+            "org.eclipse.jetty:jetty-webapp:$jettyVersion"
+    ])
+
+    testCompile([
+            'junit:junit:4.12',
+            "org.springframework:spring-test:$springVersion"
+    ])
+}
