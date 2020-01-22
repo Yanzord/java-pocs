@@ -1,4 +1,4 @@
 ---
-- name: apk update
-  apk:
-    update_cache: yes
+  - name: apt-get update
+    apt:
+      update_cache: yes

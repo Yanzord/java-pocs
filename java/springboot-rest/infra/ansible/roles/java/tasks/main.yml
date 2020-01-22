@@ -1,12 +1,14 @@
 ---
-- name: install java 8
-    apt: name=openjdk-8-jdk state=latest update-cache=yes force=yes
-    sudo: yes
+  - name: install java 8
+    apt:
+      name: openjdk-8-jdk
+      state: latest
+      update_cache: yes
 
-- name: copy application to container
+  - name: copy application to container
     copy:
       src: /var/lib/jenkins/workspace/infra/springboot-rest/
       dest: /usr/local/
 
-- name: run application
+  - name: run application
     shell: "java -jar /usr/local/springboot-rest.war"
