@@ -1,0 +1,10 @@
+**/bin/*
+**/build/*
+**/.idea/*
+**/.settings/*
+**/gradle/*
+.classpath
+.project
+/.metadata/
+/.recommenders/
+/out/
