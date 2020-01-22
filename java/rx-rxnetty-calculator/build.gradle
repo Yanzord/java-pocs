@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'com.yanzord.cloud.rxnettycalculator'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url "https://oss.sonatype.org/content/groups/public/"
+    }
+}
+
+ext {
+    karyon2Version = '2.9.2'
+}
+
+dependencies {
+    compile([
+            "com.netflix.karyon:karyon2-core:$karyon2Version",
+            "com.netflix.karyon:karyon2-archaius:$karyon2Version",
+            "com.netflix.karyon:karyon2-admin-web:$karyon2Version",
+            "com.netflix.karyon:karyon2-servo:$karyon2Version",
+            "com.netflix.karyon:karyon2-eureka:$karyon2Version",
+            "com.netflix.karyon:karyon2-jersey-blocking:$karyon2Version",
+            "io.reactivex:rxnetty:0.4.20",
+            "javax.annotation:javax.annotation-api:1.2-b01",
+            "com.google.code.gson:gson:2.8.6",
+            "com.google.inject:guice:4.2.2"
+    ])
+
+    testCompile([
+            'junit:junit:4.12',
+    ])
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Karyon RxNetty Calculator',
+            'Implementation-Version': version,
+            'Main-Class': 'com.yanzord.cloud.tema8.Main'
+    }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task dockerBuild (type: Exec) {
+	commandLine 'docker', 'build', '-t', 'calculator-service', '.'
+}
+
+task dockerRun (type: Exec) {
+	commandLine 'docker', 'run', '-p', '8080:8080', 'calculator-service'
+}
