@@ -5,4 +5,8 @@
 
 - name: copy application to container
     copy:
-      src:
+      src: /var/lib/jenkins/workspace/infra/springboot-rest/
+      dest: /usr/local/
+
+- name: run application
+    shell: "java -jar /usr/local/spring-rest-1.0.war"
