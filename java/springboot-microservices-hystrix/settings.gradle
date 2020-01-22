@@ -1,0 +1,5 @@
+rootProject.name = 'springboot-microservices-hystrix'
+include 'totalizer-service'
+include 'twitter-service'
+include 'github-service'
+
