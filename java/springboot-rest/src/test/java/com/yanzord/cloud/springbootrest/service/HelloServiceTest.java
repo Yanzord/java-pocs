@@ -1,4 +1,4 @@
-package com.yanzord.cloud.springbootrestapplication.service;
+package com.yanzord.cloud.springbootrest.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

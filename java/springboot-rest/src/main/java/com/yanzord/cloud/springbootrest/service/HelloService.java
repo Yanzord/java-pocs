@@ -1,4 +1,4 @@
-package com.yanzord.cloud.springbootrestapplication.service;
+package com.yanzord.cloud.springbootrest.service;
 
 import org.springframework.stereotype.Service;
 

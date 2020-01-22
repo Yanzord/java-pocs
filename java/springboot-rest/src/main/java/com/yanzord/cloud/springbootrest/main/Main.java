@@ -1,4 +1,4 @@
-package com.yanzord.cloud.springbootrestapplication.main;
+package com.yanzord.cloud.springbootrest.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
