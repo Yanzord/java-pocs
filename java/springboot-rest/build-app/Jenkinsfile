@@ -11,7 +11,7 @@ pipeline {
       stage('test') {
          steps {
             sh '''
-                 cd java/springboot-rest-application
+                 cd java/springboot-rest
                  ./gradlew test
                '''
          }
@@ -20,7 +20,7 @@ pipeline {
       stage('build') {
          steps {
             sh '''
-                 cd java/springboot-rest-application
+                 cd java/springboot-rest
                  ./gradlew clean build
                '''
          }
@@ -39,8 +39,8 @@ pipeline {
                 spec: '''{
                       "files": [
                         {
-                          "pattern": "java/springboot-rest-application/build/libs/*.war",
-                          "target": "gradle-release-local/springboot-rest-application/"
+                          "pattern": "java/springboot-rest/build/libs/*.war",
+                          "target": "gradle-release-local/springboot-rest/"
                         }
                      ]
                 }'''

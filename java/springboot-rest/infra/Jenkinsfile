@@ -19,8 +19,8 @@ pipeline {
                         "files":
                         [
                            {
-                              "pattern": "gradle-release-local/springboot-rest-app/",
-                              "target": "springboot-rest-app"
+                              "pattern": "gradle-release-local/springboot-rest/",
+                              "target": "springboot-rest"
                            }
                         ]
                      }
@@ -32,7 +32,7 @@ pipeline {
       stage('provisioning') {
          steps {
             sh '''
-                  cd java/springboot-rest-app/infra
+                  cd java/springboot-rest/infra
                   packer build build.json
                '''
          }
