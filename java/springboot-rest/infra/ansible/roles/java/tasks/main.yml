@@ -1,0 +1,8 @@
+---
+- name: install java 8
+    apt: name=openjdk-8-jdk state=latest update-cache=yes force=yes
+    sudo: yes
+
+- name: copy application to container
+    copy:
+      src:

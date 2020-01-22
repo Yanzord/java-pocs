@@ -1,0 +1,4 @@
+---
+- name: apk update
+  apk:
+    update_cache: yes
