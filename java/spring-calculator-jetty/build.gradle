@@ -1,0 +1,44 @@
+plugins {
+    id 'war'
+}
+
+war {
+    archiveFileName = 'tema4.war'
+}
+
+group 'com.yanzord.cloud.springcalculator'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+ext {
+    springVersion = '5.2.2.RELEASE'
+}
+
+repositories {
+    maven { url 'http://repo.spring.io/libs-release' }
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/groups/public" }
+    mavenLocal()
+}
+
+dependencies {
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+
+    compile([
+            "org.springframework:spring-core:$springVersion",
+            "org.springframework:spring-context:$springVersion",
+            "org.springframework:spring-beans:$springVersion"
+    ])
+
+    testCompile([
+            'junit:junit:4.12',
+            "org.springframework:spring-test:$springVersion"
+    ])
+}
+
+task deploy (dependsOn: war, type: Copy) {
+    from "build/libs"
+    into System.getProperty("user.home") + "/jetty-distribution-9.4.24.v20191120/webapps"
+    include "*.war"
+}
