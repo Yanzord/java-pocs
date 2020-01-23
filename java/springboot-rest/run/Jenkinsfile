@@ -1,0 +1,21 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('download docker image') {
+         steps {
+            sh '''
+                 docker pull yanzord/cloud-sandbox:springboot-rest-app
+               '''
+         }
+      }
+
+      stage('run docker image') {
+         steps {
+            sh '''
+                 docker run -p 8282:8080 cloud-sandbox:springboot-rest-app
+               '''
+         }
+      }
+   }
+}
