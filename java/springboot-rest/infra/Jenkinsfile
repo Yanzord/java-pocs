@@ -10,8 +10,8 @@ pipeline {
             rtServer (
                id: 'jenkins-artifactory-id',
                url: 'http://localhost:8081/artifactory',
-               username: '$JFROG_CREDENTIALS_USR',
-               password: '$JFROG_CREDENTIALS_PSW'
+               username: env.JFROG_CREDENTIALS_USR,
+               password: env.JFROG_CREDENTIALS_PSW
             )
 
             rtDownload (
