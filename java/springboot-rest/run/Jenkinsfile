@@ -13,7 +13,7 @@ pipeline {
       stage('run docker image') {
          steps {
             sh '''
-                 docker run -p 8282:8080 cloud-sandbox:springboot-rest-app
+                 docker run -p 8282:8080 yanzordcloud-sandbox:springboot-rest-app
                '''
          }
       }
