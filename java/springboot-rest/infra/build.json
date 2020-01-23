@@ -13,7 +13,7 @@
     {
       "type": "file",
       "source": "/home/ilegra242/.jenkins/workspace/infra/springboot-rest.war",
-      "destination": "/usr/local/springboot-rest.war"
+      "destination": "/usr/local/application/springboot-rest/springboot-rest.war"
     },
     {
       "type": "ansible",
