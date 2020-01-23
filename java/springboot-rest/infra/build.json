@@ -4,7 +4,7 @@
       "type": "docker",
       "image": "ubuntu:18.04",
       "commit": true,
-      "run_command": ["-d", "-i", "-t", "{{.Image}}", "/bin/sh"],
+      "run_command": ["-d", "-t", "{{.Image}}", "/bin/sh"],
       "changes": [
         "ENTRYPOINT [\"java\", \"-jar\", \"/usr/local/springboot-rest-1.0.war\"]"
       ]
