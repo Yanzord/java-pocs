@@ -12,15 +12,11 @@
   "provisioners":[
     {
       "type": "file",
-      "source": "/home/ilegra242/.jenkins/workspace/infra/springboot-rest/springboot-rest/springboot-rest.war",
+      "source": "/home/ilegra242/.jenkins/workspace/infra/springboot-rest.war",
       "destination": "/usr/local/springboot-rest.war"
     },
     {
-      "type": "shell",
-      "script": "ansible/ansible.sh"
-    },
-    {
-      "type": "ansible-local",
+      "type": "ansible",
       "playbook_file": "ansible/playbook.yml"
     }
   ],
@@ -31,7 +27,12 @@
         "repository": "yanzord/cloud-sandbox",
         "tag": "springboot-rest-app"
       },
-      "docker-push"
+      {
+        "type": "docker-push",
+        "login": "true",
+        "login_username": "{{user `username`}}",
+        "login_password": "{{user `password`}}"
+      }
     ]
   ]
 }

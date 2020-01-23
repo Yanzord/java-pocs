@@ -3,12 +3,15 @@ pipeline {
 
    stages {
       stage('download artifactory') {
+         environment {
+            JFROG_CREDENTIALS = credentials('jfrog-credentials')
+         }
          steps {
             rtServer (
                id: 'jenkins-artifactory-id',
                url: 'http://localhost:8081/artifactory',
-               username: 'admin',
-               password: 'beirari0@2014'
+               username: '$JFROG_CREDENTIALS_USR',
+               password: '$JFROG_CREDENTIALS_PSW'
             )
 
             rtDownload (
@@ -20,7 +23,7 @@ pipeline {
                         [
                            {
                               "pattern": "gradle-release-local/springboot-rest/*.war",
-                              "target": "springboot-rest/springboot-rest.war"
+                              "target": "springboot-rest.war"
                            }
                         ]
                      }
@@ -33,7 +36,7 @@ pipeline {
          steps {
             sh '''
                   cd java/springboot-rest/infra
-                  packer build build.json
+                  packer build -var-file=docker_credentials.json build.json
                '''
          }
       }

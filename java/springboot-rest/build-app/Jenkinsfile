@@ -27,12 +27,15 @@ pipeline {
       }
 
       stage('publish artifactory') {
+         environment {
+            JFROG_CREDENTIALS = credentials('jfrog-credentials')
+         }
          steps {
             rtServer (
                 id: 'jenkins-artifactory-id',
                 url: 'http://localhost:8081/artifactory',
-                username: 'admin',
-                password: 'beirari0@2014'
+                username: '$JFROG_CREDENTIALS_USR',
+                password: '$JFROG_CREDENTIALS_PSW'
             )
             rtUpload (
                 serverId: 'jenkins-artifactory-id',
