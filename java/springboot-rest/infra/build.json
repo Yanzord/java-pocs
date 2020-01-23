@@ -19,7 +19,7 @@
     },
     {
       "type": "file",
-      "source": "../../../app/springboot-rest-1.0.war",
+      "source": "../../../app/springboot-rest/springboot-rest-1.0.war",
       "destination": "/usr/local/springboot-rest-1.0.war"
     },
     {
