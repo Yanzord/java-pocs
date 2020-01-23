@@ -12,10 +12,7 @@
   "provisioners":[
     {
       "type": "shell",
-      "inline": [
-        "apt-get update",
-        "apt-get install python3 python3-apt -yq"
-      ]
+      "script": "ansible_python.sh"
     },
     {
       "type": "file",
@@ -23,7 +20,7 @@
       "destination": "/usr/local/springboot-rest-1.0.war"
     },
     {
-      "type": "ansible",
+      "type": "ansible-local",
       "playbook_file": "playbook.yml"
     }
   ],
