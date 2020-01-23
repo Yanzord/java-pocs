@@ -12,10 +12,5 @@
         state: latest
         update_cache: yes
 
-    - name: copy application to container
-      copy:
-        src: /home/ilegra242/.jenkins/workspace/infra/springboot-rest/
-        dest: /usr/local/
-
     - name: run application
       shell: "java -jar /usr/local/springboot-rest.war"

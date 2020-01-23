@@ -8,6 +8,11 @@
   ],
   "provisioners":[
     {
+      "type": "file",
+      "source": "/home/ilegra242/.jenkins/workspace/infra/springboot-rest/springboot-rest/springboot-rest.war",
+      "destination": "/usr/local/springboot-rest.war"
+    },
+    {
       "type": "shell",
       "script": "ansible/ansible.sh"
     },
