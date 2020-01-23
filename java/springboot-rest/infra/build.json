@@ -5,19 +5,22 @@
       "image": "ubuntu:18.04",
       "commit": true,
       "changes": [
-        "CMD [\"java\", \"-jar\", \"/usr/local/springboot-rest.war\"]"
+        "ENTRYPOINT [\"java\", \"-jar\", \"/usr/local/springboot-rest-1.0.war\"]"
       ]
     }
   ],
   "provisioners":[
     {
       "type": "shell",
-      "inline": ["apt install python3.7"]
+      "inline": [
+        "apt-get update",
+        "apt-get install python3 python3-apt -yq"
+      ]
     },
     {
       "type": "file",
-      "source": "/home/ilegra242/.jenkins/workspace/infra/application/springboot-rest/springboot-rest.war",
-      "destination": "/usr/local/springboot-rest.war"
+      "source": "../../../app/springboot-rest-1.0.war",
+      "destination": "/usr/local/springboot-rest-1.0.war"
     },
     {
       "type": "ansible",

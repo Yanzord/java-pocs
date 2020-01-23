@@ -22,8 +22,8 @@ pipeline {
                         "files":
                         [
                            {
-                              "pattern": "gradle-release-local/springboot-rest/*.war",
-                              "target": "application/springboot-rest.war"
+                              "pattern": "gradle-release-local/springboot-rest/",
+                              "target": "app/"
                            }
                         ]
                      }
