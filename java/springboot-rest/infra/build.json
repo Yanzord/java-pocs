@@ -3,7 +3,10 @@
     {
       "type": "docker",
       "image": "ubuntu:18.04",
-      "commit": true
+      "commit": true,
+      "changes": [
+        "CMD [\"java\", \"-jar\", \"/usr/local/springboot-rest.war\"]"
+      ]
     }
   ],
   "provisioners":[

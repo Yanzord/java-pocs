@@ -11,6 +11,3 @@
         name: openjdk-8-jdk
         state: latest
         update_cache: yes
-
-    - name: run application
-      shell: "java -jar /usr/local/springboot-rest.war"
