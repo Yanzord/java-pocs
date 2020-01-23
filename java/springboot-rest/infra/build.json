@@ -11,6 +11,10 @@
   ],
   "provisioners":[
     {
+      "type": "shell",
+      "inline": ["apt install python3.7"]
+    },
+    {
       "type": "file",
       "source": "/home/ilegra242/.jenkins/workspace/infra/application/springboot-rest/springboot-rest.war",
       "destination": "/usr/local/springboot-rest.war"

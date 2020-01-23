@@ -6,10 +6,6 @@
       apt:
         update_cache: yes
 
-    - name: install python
-      apt:
-        name: python3.7
-
     - name: install java 8
       apt:
         name: openjdk-8-jdk
