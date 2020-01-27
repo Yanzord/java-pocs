@@ -40,7 +40,7 @@ pipeline {
                 password: env.JFROG_CREDENTIALS_PSW
             )
             rtUpload (
-                serverId: 'jenkins-artifactory-id',
+                serverId: env.ARTIFACTORY_SERVER_ID,
                 spec: '''{
                       "files": [
                         {

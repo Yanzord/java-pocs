@@ -19,7 +19,7 @@ pipeline {
             )
 
             rtDownload (
-               serverId: 'jenkins-artifactory-id',
+               serverId: env.ARTIFACTORY_SERVER_ID,
                spec:
                   '''
                      {

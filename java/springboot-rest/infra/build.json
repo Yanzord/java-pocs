@@ -1,8 +1,10 @@
 {
-  "variables": {
-    "docker_hub_username": "",
-    "docker_hub_password": ""
-  },
+  "variables": [
+    {
+      "docker_hub_username": "",
+      "docker_hub_password": ""
+    }
+  ],
   "builders":[
     {
       "type": "docker",
