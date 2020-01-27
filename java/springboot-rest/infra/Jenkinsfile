@@ -2,7 +2,7 @@ pipeline {
    agent any
 
    environment {
-      JFROG_CREDENTIALS = credentials('jfrog-credentials'),
+      JFROG_CREDENTIALS = credentials('jfrog-credentials')
       DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
       ARTIFACTORY_SERVER_ID = credentials('artifactory-server-id')
       ARTIFACTORY_SERVER_URL = credentials('artifactory-server-url')
