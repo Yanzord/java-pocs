@@ -37,8 +37,10 @@ pipeline {
 
       stage('provisioning') {
          steps {
-            sh 'cd java/springboot-rest/infra'
-            sh 'packer build -var "docker_hub_username=$DOCKER_HUB_CREDENTIALS_USR" -var "docker_hub_password=$DOCKER_HUB_CREDENTIALS_PSW" template.json'
+            sh '''
+                cd java/springboot-rest/infra
+                packer build template.json
+               '''
          }
       }
    }
