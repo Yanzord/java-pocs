@@ -1,15 +1,19 @@
 pipeline {
    agent any
 
+   environment {
+      JFROG_CREDENTIALS = credentials('jfrog-credentials'),
+      DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
+      ARTIFACTORY_SERVER_ID = credentials('artifactory-server-id')
+      ARTIFACTORY_SERVER_URL = credentials('artifactory-server-url')
+   }
+
    stages {
       stage('download artifactory') {
-         environment {
-            JFROG_CREDENTIALS = credentials('jfrog-credentials')
-         }
          steps {
             rtServer (
-               id: 'jenkins-artifactory-id',
-               url: 'http://localhost:8081/artifactory',
+               id: env.ARTIFACTORY_SERVER_ID,
+               url: env.ARTIFACTORY_SERVER_URL,
                username: env.JFROG_CREDENTIALS_USR,
                password: env.JFROG_CREDENTIALS_PSW
             )
@@ -36,7 +40,7 @@ pipeline {
          steps {
             sh '''
                   cd java/springboot-rest/infra
-                  packer build -var-file=docker_credentials.json build.json
+                  packer build -var 'docker_hub_username=$DOCKER_HUB_CREDENTIALS_USR' -var 'docker_hub_password=$DOCKER_HUB_CREDENTIALS_PSW' build.json
                '''
          }
       }
