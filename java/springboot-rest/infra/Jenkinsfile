@@ -39,7 +39,7 @@ pipeline {
          steps {
             sh '''
                 cd java/springboot-rest/infra
-                packer build -var "docker_hub_username=$DOCKER_HUB_CREDENTIALS_USR" -var "docker_hub_username=$DOCKER_HUB_CREDENTIALS_USR" template.json
+                packer build -var "docker_hub_username=$DOCKER_HUB_CREDENTIALS_USR" -var "docker_hub_password=$DOCKER_HUB_CREDENTIALS_PSW" template.json
                '''
          }
       }
