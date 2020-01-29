@@ -15,22 +15,22 @@ public class SongController {
     private SongService songService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    private List<Song> findAll() {
+    private List<Song> getAllSongs() {
         return songService.getAllSongs();
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    private Song save(@RequestBody Song song) {
+    private Song addNewSong(@RequestBody Song song) {
         return songService.addNewSong(song);
     }
 
     @RequestMapping(value = "/songTitle/{songTitle}", method = RequestMethod.GET)
-    public List<Song> findBySongTitle(@PathVariable("songTitle") String songTitle) {
+    public List<Song> getSongByTitle(@PathVariable("songTitle") String songTitle) {
         return songService.getSongByTitle(songTitle);
     }
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
-    private Song findSongById(@PathVariable("id") String id) {
+    private Song getSongById(@PathVariable("id") String id) {
         return songService.getSongById(id);
     }
 }
