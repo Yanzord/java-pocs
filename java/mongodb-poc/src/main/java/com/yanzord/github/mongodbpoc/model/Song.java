@@ -10,6 +10,13 @@ public class Song {
     private String id;
     private String songTitle;
 
+    public Song(){}
+
+    public Song(String id, String songTitle) {
+        this.id = id;
+        this.songTitle = songTitle;
+    }
+
     public String getId() {
         return id;
     }
